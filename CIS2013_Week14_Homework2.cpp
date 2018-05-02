@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
+
+
 #include "ToDo.h"
+
 
 using namespace std;
 
@@ -8,6 +11,8 @@ int main() {
 	char next = 'y';
 	int len = 0;
 	string action;
+
+	
 
 	cout << "How long to you want your list: ";
 	cin >> len;

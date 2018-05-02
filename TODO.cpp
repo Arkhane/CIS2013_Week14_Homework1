@@ -1,9 +1,13 @@
 #include "ToDo.h"
+#include <fstream>
 
 using namespace std;
 
 ToDo::ToDo() {
+	ofstream myfile;
+	myfile.open("file.txt");
 	ToDo(5);
+
 }
 
 ToDo::ToDo(int len) {
@@ -12,6 +16,7 @@ ToDo::ToDo(int len) {
 }
 
 ToDo::~ToDo() {
+
 	delete[] list;
 }
 
