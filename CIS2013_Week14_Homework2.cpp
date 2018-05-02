@@ -1,37 +1,50 @@
+#include <iostream>
+#include <string>
 #include "ToDo.h"
 
 using namespace std;
 
-ToDo::ToDo() {
-	ToDo(5);
-}
+int main() {
+	char next = 'y';
+	int len = 0;
+	string action;
 
-ToDo::ToDo(int len) {
-	length = len;
-	list = new string[length];
-}
+	cout << "How long to you want your list: ";
+	cin >> len;
 
-ToDo::~ToDo() {
-	delete[] list;
-}
+	ToDo list(len);
 
-// Add an item to list
-void ToDo::add(string item) {
-	if (next < length) {
-		list[next] = item;
-		next++;
-	}
-}
+	// Array of ToDo objects
+	// Make sure you have a () constructor
+	ToDo manylists[10];
 
-// Finish the last thing in list
-void ToDo::done() {
-	next--;
-	list[next] = "";
-}
+	// manylists[2].print();
+	// manylists[1].print();
 
-// Print list
-void ToDo::print() {
-	for (int i = 0; i<next; i++) {
-		cout << " " << i << " " << list[i] << endl;
+	while (next != 'x') {
+
+		cout << "Add to list (a)" << endl;
+		cout << "Done list item (d)" << endl;
+		cout << "Print list (p)" << endl;
+		cout << "Exit list app (x)" << endl;
+		cout << "What do you want to do: ";
+		cin >> next;
+
+		switch (next) {
+		case 'a':
+			cout << "Name a todo item: ";
+			cin >> action;
+			list.add(action);
+			break;
+		case 'd':
+			list.done();
+			break;
+		case 'p':
+			list.print();
+			break;
+		case 'x':
+			// All done with todo list
+			break;
+		}
 	}
 }
